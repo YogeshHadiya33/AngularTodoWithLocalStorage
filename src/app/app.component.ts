@@ -7,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  title = 'todo';
   list: any = []
   task: string = "";
-   
-
 
   ngOnInit(): void {
     this.GetAll();
@@ -32,9 +29,9 @@ export class AppComponent implements OnInit {
       let obj = this.list[index];
       if (obj != null && typeof obj != "undefined") {
         obj.IsComplete = !currentValue;
+        this.list[index] = obj;
+        this.Save();
       }
-      this.list[index] = obj;
-      this.Save();
     }
   }
 
