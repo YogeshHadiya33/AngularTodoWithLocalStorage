@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     this.task = '';
   }
 
-  MarkComplete(index: number, currentValue: boolean) {
+  ChangeStatus(index: number, currentValue: boolean) {
     if (this.list.length > index) {
       let obj = this.list[index];
       if (obj != null && typeof obj != "undefined") {
@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
       this.Save();
     }
   }
-
 
   DeleteAll() {
     this.list = [];

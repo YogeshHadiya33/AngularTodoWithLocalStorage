@@ -16,7 +16,7 @@
   </div>
   <div class="col-5">
     <div class="form-check my-1">
-      <input class="form-check-input" (change)="MarkComplete(i,item.IsComplete)" type="checkbox"
+      <input class="form-check-input" (change)="ChangeStatus(i,item.IsComplete)" type="checkbox"
         [checked]="item.IsComplete" id="{{i}}">
       <label class="form-check-label" for="{{i}}" *ngIf="item.IsComplete">
         <s>{{item.TaskName}}</s>
