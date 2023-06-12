@@ -1,22 +1,29 @@
 <div class="row m-3">
-  <div class="col-6">
+  <div class="col-1">
+    <button class="btn btn-danger" (click)="DeleteAll()">Delete All</button>
+  </div>
+  <div class="col-3">
     <input type="text" class="form-control" placeholder="Enter Task" [(ngModel)]="task" />
   </div>
   <div class="col-1">
     <button class="btn btn-primary" (click)="Add()">Add</button>
   </div>
   <div class="col-2">
-    <button class="btn btn-danger" (click)="DeleteAll()">Delete All</button>
+    <input type="text" class="form-control" placeholder="Search Task" [(ngModel)]="searchText"
+      (keyup.enter)="SearchTask()" />
+  </div>
+  <div class="col-1">
+    <button class="btn btn-danger" (click)="Clear()">Clear</button>
   </div>
 </div>
 
 <div class="row m-3" *ngFor="let item of list; let i=index">
   <div class="col-1">
-    <button class="btn btn-danger btn-sm pull-right" (click)="Delete(i)">Delete</button>
+    <button class="btn btn-danger btn-sm pull-right" (click)="Delete(item.TaskId)">Delete</button>
   </div>
   <div class="col-5">
     <div class="form-check my-1">
-      <input class="form-check-input" (change)="ChangeStatus(i,item.IsComplete)" type="checkbox"
+      <input class="form-check-input" (change)="ChangeStatus(item.TaskId,item.IsComplete)" type="checkbox"
         [checked]="item.IsComplete" id="{{i}}">
       <label class="form-check-label" for="{{i}}" *ngIf="item.IsComplete">
         <s>{{item.TaskName}}</s>
